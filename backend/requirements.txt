@@ -1,0 +1,22 @@
+# FastAPI and server
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.9
+
+# Celery and Redis
+celery>=5.3.6
+redis>=5.0.1
+
+# Pydantic and validation (compatible with Python 3.13)
+pydantic>=2.6.0
+
+# HTTP client for API calls
+aiohttp>=3.9.0
+
+# AI API clients
+groq>=0.4.0
+
+# Environment and utilities
+python-dotenv>=1.0.0
+python-dateutil>=2.8.2
+pytz>=2023.3
