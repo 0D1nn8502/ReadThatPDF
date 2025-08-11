@@ -38,6 +38,17 @@ SEND_EMAIL_RETRY_DELAY = int(os.environ.get("SEND_EMAIL_RETRY_DELAY", "60"))
 # ---------------------------
 # Redis config
 # ---------------------------
+
+## Redis config ## 
+redis_config = {
+    'host': os.environ.get("REDIS_HOST", "localhost"),
+    'port': int(os.environ.get("REDIS_PORT", 6379)),
+    'db': int(os.environ.get("REDIS_DB", 0)),
+    'max_connections': 20
+}
+
+
+## Redis client ## 
 redis_client = redis.Redis(
     host=os.environ.get("REDIS_HOST", "localhost"),
     port=int(os.environ.get("REDIS_PORT", 6379)),
@@ -135,7 +146,7 @@ readpdf_app.conf.update(
 # ---------------------------
 # User scheduler instance (your existing implementation)
 # ---------------------------
-user_scheduler = UserScheduler(readpdf_app, redis_client)
+user_scheduler = UserScheduler(readpdf_app, redis_config) 
 
 def setup_user_schedule(user_data: dict):
     return user_scheduler.setup_user_schedule(user_data)
